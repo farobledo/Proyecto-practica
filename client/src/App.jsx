@@ -1,15 +1,19 @@
+import { useEffect } from "react";
 import { useDispatch } from "react-redux";
 import CharacterContainer from "./componentes/CharacterContainer/CharacterContainer";
-import { actionPratice, getCharacters } from "./redux/actions";
+import { getCharacters, getCharByName } from "./redux/actions";
 
 function App() {
   const dispatch = useDispatch();
 
+  useEffect(() => {
+    dispatch(getCharacters());
+  }, [dispatch]);
+
   return (
     <div className="App">
-      <button onClick={() => dispatch(actionPratice())}>HOLA</button>
-      <button onClick={() => dispatch(getCharacters())}>
-        Traer personajes
+      <button onClick={() => dispatch(getCharByName("rick"))}>
+        Traeme todos los Ricks
       </button>
       <CharacterContainer />
     </div>

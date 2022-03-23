@@ -1,16 +1,15 @@
-import { GET_CHARACTERS, PRUEBA } from "./actions";
+import { GET_CHARACTERS, GET_CHAR_BY_NAME } from "./actions";
 
 const initialState = {
-  texto: "",
   characters: [],
+  searchResults: [],
 };
 
 const rootReducer = (state = initialState, action) => {
   switch (action.type) {
-    case PRUEBA:
-      return { ...state, texto: state.texto + "prueba" };
+    case GET_CHAR_BY_NAME:
+      return { ...state, searchResults: action.payload };
     case GET_CHARACTERS:
-      console.log(action.payload);
       return { ...state, characters: [...state.characters, ...action.payload] };
     default:
       return state;

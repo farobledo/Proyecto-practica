@@ -1,0 +1,8 @@
+.Character {
+  background-color: peru;
+  width: 200px;
+}
+
+.Character img {
+  width: 100%;
+}
