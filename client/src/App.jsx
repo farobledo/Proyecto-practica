@@ -1,7 +1,10 @@
 import { useEffect } from "react";
 import { useDispatch } from "react-redux";
 import CharacterContainer from "./componentes/CharacterContainer/CharacterContainer";
-import { getCharacters, getCharByName } from "./redux/actions";
+import Navbar from "./componentes/Navbar/Navbar";
+import { getCharacters } from "./redux/actions";
+import { Routes, Route } from "react-router-dom";
+import Create from "./componentes/Create/Create";
 
 function App() {
   const dispatch = useDispatch();
@@ -12,10 +15,10 @@ function App() {
 
   return (
     <div className="App">
-      <button onClick={() => dispatch(getCharByName("rick"))}>
-        Traeme todos los Ricks
-      </button>
-      <CharacterContainer />
+      <Routes>
+        <Route path="/" element={<CharacterContainer />} />
+        <Route path="/create" element={<Create />} />
+      </Routes>
     </div>
   );
 }
