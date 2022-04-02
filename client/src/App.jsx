@@ -1,7 +1,11 @@
 import { useEffect } from "react";
+import Navigator from "./views/nav";
 import { useDispatch } from "react-redux";
 import CharacterContainer from "./componentes/CharacterContainer/CharacterContainer";
-import { getCharacters, getCharByName } from "./redux/actions";
+import { getCharacters } from "./redux/actions";
+import './css/navar.css';
+import 'animate.css';
+
 
 function App() {
   const dispatch = useDispatch();
@@ -11,12 +15,9 @@ function App() {
   }, [dispatch]);
 
   return (
-    <div className="App">
-      <button onClick={() => dispatch(getCharByName("rick"))}>
-        Traeme todos los Ricks
-      </button>
+    <><Navigator /><div className="App">
       <CharacterContainer />
-    </div>
+    </div></>
   );
 }
 
