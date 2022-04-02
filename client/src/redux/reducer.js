@@ -8,9 +8,9 @@ const initialState = {
 const rootReducer = (state = initialState, action) => {
   switch (action.type) {
     case GET_CHAR_BY_NAME:
-      return { ...state, searchResults: action.payload };
+      return { ...state, characters: action.payload };
     case GET_CHARACTERS:
-      return { ...state, characters: [...state.characters, ...action.payload] };
+      return { ...state, characters: action.payload };
     default:
       return state;
   }
